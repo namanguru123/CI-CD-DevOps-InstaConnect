@@ -58,8 +58,8 @@ exports.signUp=async(req,res)=>{
         //return the response
         return res.status(200).json({
             success:true,
-            message:"User registerd successfully",
-            message:user,
+            message:"User registered successfully",
+            user:user,
         })
     }
     catch(error){

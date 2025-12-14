@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import {useNavigate} from 'react-router-dom'
-import logo from '../assests/text_logo.png'
+// logo import removed - using custom branding instead
 import { GoHome } from "react-icons/go";
 import { CiSearch } from "react-icons/ci";
 import { MdOutlineExplore } from "react-icons/md";
@@ -68,20 +68,19 @@ const Sidebar = () => {
     
   return (
     <>
-        <div className='w-[250px] h-[100vh] border sticky top-0 pl-3 flex flex-col justify-between py-4 font-sans'>
-            {/* image */}
-            <div className='w-[55%] mt-2 ml-2'>
-                <img src={logo} alt="" className='w-[100%]' />
+        <div className='w-[250px] h-[100vh] border sticky top-0 pl-3 flex flex-col justify-between py-4 font-sans bg-white'>
+            <div className='mt-4 ml-2'>
+                <h1 className='text-3xl font-bold text-purple-700'>InstaConnect</h1>
+                <p className='text-xs text-gray-500 mt-1'>Share Your Story</p>
             </div>
 
-            {/* menu */}
             <div className='flex-1 flex flex-col gap-2 p-1 pr-5 mt-6'>
                 {
                     menus.map((elem,ind)=>{      
                         return (
                             <div 
                             onClick={()=>createPostBtnHandle(elem)}
-                            className={`${select===elem.title ? "bg-gray-200" :"bg-transparen"} text-3xl flex gap-4 items-center hover:bg-gray-200 cursor-pointer  p-1 rounded-lg`}
+                            className={`${select===elem.title ? "bg-purple-100 text-purple-700" :"bg-transparent"} text-2xl flex gap-4 items-center hover:bg-purple-50 cursor-pointer p-2 rounded-lg transition-all`}
                              key={ind} >
                                 {
                                     elem.element

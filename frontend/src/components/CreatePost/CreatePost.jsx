@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import dp from '../assests/dp.jpg';
+import dp from '../assests/addfile.png';
 import { RxCrossCircled } from "react-icons/rx";
 import { createPost } from '../../services/operations/postAPI';
 import { useNavigate } from 'react-router-dom';

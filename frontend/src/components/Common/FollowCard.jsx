@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import dp from "../assests/dp.jpg"
+import dp from "../assests/addfile.png"
 import { followUser } from '../../services/operations/userAPI'
 
 const FollowCard = ({user,choice}) => {

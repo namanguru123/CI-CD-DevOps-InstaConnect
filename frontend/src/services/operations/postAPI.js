@@ -22,9 +22,11 @@ const {
     GET_USER_API
 }=getUserEndpoints;
 
-export const getAllPost=async()=>{
+export const getAllPost=async(token)=>{
     try{
-        const response=await apiConnector("get",GET_ALL_POST_API);
+        const response=await apiConnector("get",GET_ALL_POST_API,null,{
+            Authorization: `Bearer ${token}`
+        });
 
         if(!response){
             throw new Error(response.data.message);
@@ -178,7 +180,7 @@ export const savePost=async(post,dispatch,setRefresh,token)=>{
 
 export const getUser=async(token)=>{
     try{
-        const response=await apiConnector("post",GET_USER_API,{data:"Pankaj"},
+        const response=await apiConnector("post",GET_USER_API,{data:"user"},
         {
             Authorization: `Bearer ${token}`
         }

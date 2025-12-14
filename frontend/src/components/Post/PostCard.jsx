@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import dp from "../assests/dp.jpg"
+import dp from "../assests/addfile.png"
 import { BsThreeDots } from "react-icons/bs";
 import { FaRegHeart } from "react-icons/fa";
 import { FaRegComment } from "react-icons/fa";
@@ -28,9 +28,7 @@ const PostCard = ({post, setCommData}) => {
     const date= new Date(post.createdAt);
     const month=["Jan","Feb","Mar","Apr","May","Jun","July","Aug","Sep","Oct","Nov","Dec"];
 
-    //like controller
     const likeHandler=async(post)=>{
-        //console.log("Check ",post.title)
         setLike({
             post:post,
         });
@@ -42,7 +40,6 @@ const PostCard = ({post, setCommData}) => {
         }
     },[like])
    
-    // comment controller
     const commentSubmitHandler=(e,post)=>{
         e.preventDefault();
         commentData.postId=post;
@@ -65,7 +62,6 @@ const PostCard = ({post, setCommData}) => {
 
   return (
     <div className=' '>
-        {/* heading */}
         <div className='border-b-[1px] flex justify-between items-center py-2'>
             {/* profile */}
             <div className='flex gap-2 items-center'>

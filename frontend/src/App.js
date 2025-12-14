@@ -1,7 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Login from "./components/Auth/Login";
 import Signup from "./components/Auth/Signup";
-import Post from "./components/Post/Post";
 import OpenRoute from "./components/Auth/OpenRoute";
 import Profile from "./pages/Profile";
 import Layout from "./components/Layout";
@@ -10,6 +9,7 @@ import CommingSoon from "./components/ExceptionHandle/CommingSoon";
 import EditProfile from "./components/EditProfile/EditProfile";
 import Search from "./pages/Search";
 import NotFound from "./components/ExceptionHandle/NotFound";
+import Feed from "./pages/Feed";
 
 function App() {
   return (
@@ -32,7 +32,7 @@ function App() {
               <Layout />
             </PrivateRoute>  
             }>
-              <Route path="feed" element={<Post/>}/>  
+              <Route path="feed" element={<Feed/>}/>  
               <Route path="user" element={<Profile />} />
               <Route path="/user/editProfile" element={<EditProfile/>}/>
               <Route path="/search" element={<Search/>}/>

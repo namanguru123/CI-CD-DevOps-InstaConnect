@@ -1,4 +1,4 @@
-const BASE_URL="https://instagram-clone-apis.vercel.app/api/v1"
+const BASE_URL="/api/v1"
 
 //Auth endpoints
 export const authEndpoints={

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import dp from '../components/assests/dp.jpg';
+import dp from '../components/assests/addfile.png';
 import { CiSettings } from "react-icons/ci";
 import { IoMdGrid } from "react-icons/io";
 import { FaRegBookmark } from "react-icons/fa6";

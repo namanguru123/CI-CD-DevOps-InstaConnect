@@ -10,13 +10,12 @@ const TopNav = () => {
   const dispatch=useDispatch();
   return (
     <>
-        <div className='flex justify-between items-center  py-1 border-b-[1px] border-gray-500 sticky top-0 bg-white'>
-            {/* logo */}
-            <div className='w-[50%] overflow-hidden'>
-                <img src={logo} alt="" className='w-[80%]' />
+        <div className='flex justify-between items-center py-3 px-4 border-b-[1px] border-gray-300 sticky top-0 bg-white shadow-sm'>
+            <div>
+                <h1 className='text-2xl font-bold text-purple-700'>InstaConnect</h1>
+                <p className='text-xs text-gray-500'>Connect with friends</p>
             </div>
-            {/* create + notification */}
-            <div className='text-3xl flex gap-2'>
+            <div className='text-3xl flex gap-4'>
               <button onClick={()=>dispatch(setCreatePost(true))}>
                 <GoPlusCircle/>
               </button>

@@ -12,18 +12,19 @@ export function signUp(signUpData,navigate,setLoading){
        try{
         setLoading(true);
         const response=await apiConnector("post",SIGNUP_API,signUpData);
-        //console.log("Signup response.....",response);
+        console.log("Signup response.....",response);
 
-        if(!response){
-            throw new Error(response.data.message);
+        if(!response || !response.data || !response.data.success){
+            throw new Error(response?.data?.message || "Signup failed");
         }
         toast.success("Account Created Successfully");
-        navigate("/");
         toast.success("Please login");
+        navigate("/");
        }
        catch(error){
         console.log("SIGNUP ERROR.....",error);
-        toast.error(error.response.data.message)
+        const errorMsg = error.response?.data?.message || error.message || "Signup failed";
+        toast.error(errorMsg)
         navigate("/signup")
        }
        setLoading(false);
@@ -49,7 +50,8 @@ export function logIn(loginData,navigate,setLoading){
             console.log("Errror occured while log in");
             console.log(error);
             navigate("/");
-            toast.error(error.response.data.message)
+            const errorMsg = error.response?.data?.message || error.message || "Login failed";
+            toast.error(errorMsg)
         }
         setLoading(false);
     }
