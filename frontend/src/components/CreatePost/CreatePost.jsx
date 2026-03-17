@@ -56,7 +56,7 @@ const CreatePost = () => {
     return (
         <div className='w-[100vw] h-[100vh]  flex  justify-center items-center'>
             <div className='md:w-[60vw] md:h-[75vh] h-screen bg-white rounded-2xl relative'>
-                <h1 className='py-2 font-semibold text-center'>Create a new Post</h1>
+                <h1 className='py-2 font-semibold text-center'>Share a new insight</h1>
                 <div onClick={cancelCreatePost} className='absolute text-3xl top-2 right-2 cursor-pointer 0'>
                     <RxCrossCircled/>
                 </div>
@@ -64,7 +64,7 @@ const CreatePost = () => {
                 <div className='w-full flex items-center md:justify-start flex-col md:flex-row'>
                     {/* left */}
                     <div className='md:w-[50%] p-2'>
-                        <h1 className="text-2xl font-bold text-center mb-2">Upload an Image</h1>
+                        <h1 className="text-2xl font-bold text-center mb-2">Upload a document or image</h1>
                         <div className='md:h-[340px] flex justify-center w-[100%] overflow-hidden '>
                             <img src={postData.image ? URL.createObjectURL(postData.image): dp} alt="" className='h-[100%] object-cover ' />
                         </div>
@@ -73,7 +73,7 @@ const CreatePost = () => {
                                 onChange={changeHandler}
                                 type="file" name="image" id="fileToUpload" className="mb-4"
                             />
-                            <p>Upload a *png, *jpeg, *jpg image for a post</p>
+                            <p className='text-sm text-slate-600'>Upload a *png, *jpeg, *jpg attachment for your update</p>
                         </form>
                     </div>
                     {/* right */}
@@ -87,17 +87,14 @@ const CreatePost = () => {
                             <textarea
                                 onChange={changeHandler}
                                 value={postData.title}
-                                className='border-[1px] w-[100%] p-2' placeholder='Write a caption' name="title" id="" rows="9"
+                                className='border-[1px] w-[100%] p-2' placeholder='Summarize the update or insight' name="title" id="" rows="9"
                             />
-                            <div className='text-xl hidden md:block'>
-                                😀 😃 😄 😁 😆 😅 😂 🤣 😊 😇 😉 😌 😍 😘 😗 😙 😚 ☺️ 🙂 🤗 🤩 🤔 🤨 😐 😑 😶 🙄
-                            </div>
                         </form>
                     </div>
                 </div>
                 <div onClick={submitHandler} className='flex justify-end pr-4'>
-                    <button type="submit" name='Post' className='bg-blue-500 text-white px-7 py-2 mt-2 rounded-lg'>
-                        Post
+                    <button type="submit" name='Post' className='bg-slate-900 text-white px-7 py-2 mt-2 rounded-lg'>
+                        Share
                     </button>
                 </div>
             </div>

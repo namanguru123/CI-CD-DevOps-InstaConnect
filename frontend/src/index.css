@@ -2,19 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Custom color scheme for InstaConnect */
+/* Brand colors for JurisConnect */
 :root {
-  --primary-color: #7c3aed;
-  --primary-dark: #6d28d9;
-  --accent-color: #ec4899;
+  --brand-navy: #0b1d3a;
+  --brand-charcoal: #1f2937;
+  --brand-gold: #d4af37;
+  --brand-slate: #f8fafc;
 }
 
-/* Smooth transitions for better UX */
+/* Smooth transitions for a premium experience */
 button, a, input {
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
 }
 
 button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
 }

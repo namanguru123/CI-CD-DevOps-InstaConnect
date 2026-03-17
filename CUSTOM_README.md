@@ -1,9 +1,7 @@
-# InstaConnect - A Social Media Platform
+# JurisConnect - Professional Legal Network
 
 ## 📱 Overview
-InstaConnect is a social media web application built using the MERN stack (MongoDB, Express, React, Node.js). It allows users to share photos, like and comment on posts, follow other users, and discover content through a personalized feed.
-
-**Mini Project Submission** - Built in 5-6 hours by a final year engineering student
+JurisConnect is a professional social platform built using the MERN stack (MongoDB, Express, React, Node.js). It enables legal professionals to share insights, endorse updates, and connect with peers through curated feeds and professional profiles.
 
 ## ✨ Features Implemented
 

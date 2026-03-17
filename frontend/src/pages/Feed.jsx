@@ -79,13 +79,17 @@ const Feed = () => {
           </div>
         )}
 
+        <div className='text-sm text-slate-500 mb-2'>
+          Showing {posts.length} update{posts.length === 1 ? "" : "s"}
+        </div>
+
         {posts && posts.length > 0 ? (
           posts.map((post, ind) => (
             <PostCard post={post} key={ind} setCommData={setCommData} />
           ))
         ) : (
-          <div className='text-center py-8 text-gray-500'>
-            <p>No posts yet. Follow some users to see their posts!</p>
+          <div className='text-center py-8 text-slate-500'>
+            <p>No insights yet. Connect with colleagues to see their updates.</p>
           </div>
         )}
         

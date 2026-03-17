@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import dp from "../assests/addfile.png"
 import { BsThreeDots } from "react-icons/bs";
-import { FaRegHeart } from "react-icons/fa";
+import { FaHandshake } from "react-icons/fa";
 import { FaRegComment } from "react-icons/fa";
 import { PiBookmarkSimpleFill } from "react-icons/pi";
 import { PiBookmarkSimpleLight } from "react-icons/pi";
 import { createComment, doLike, savePost } from '../../services/operations/postAPI';
 import { useDispatch, useSelector } from 'react-redux';
 import { setRefresh } from '../../slices/refreshSlice';
-import { FcLike } from "react-icons/fc";
+import { FaHandsHelping } from "react-icons/fa";
 
 const PostCard = ({post, setCommData}) => {
     const token = localStorage.getItem("token") ? JSON.parse(localStorage.getItem("token")) : null;
@@ -38,7 +38,7 @@ const PostCard = ({post, setCommData}) => {
         if(like.post!==""){
             doLike(like.post,dispatch,setRefresh,token);
         }
-    },[like])
+    },[like, dispatch, token])
    
     const commentSubmitHandler=(e,post)=>{
         e.preventDefault();
@@ -62,7 +62,7 @@ const PostCard = ({post, setCommData}) => {
 
   return (
     <div className=' '>
-        <div className='border-b-[1px] flex justify-between items-center py-2'>
+        <div className='border-b border-slate-200 flex justify-between items-center py-2'>
             {/* profile */}
             <div className='flex gap-2 items-center'>
                 <div className='w-[40px] h-[40px] rounded-full overflow-hidden cursor-pointer'>
@@ -80,7 +80,7 @@ const PostCard = ({post, setCommData}) => {
             </div>
         </div>
         {/* image */}
-        <div className='h-[400px] w-full flex justify-center overflow-hidden bg-gray-200'>
+        <div className='h-[400px] w-full flex justify-center overflow-hidden bg-slate-100'>
             <img 
             src={post.postImage} alt="" className='h-full w-auto cursor-pointer' />
         </div>
@@ -93,14 +93,14 @@ const PostCard = ({post, setCommData}) => {
                 onClick={()=>likeHandler(post)}
                 className='flex gap-1 items-center cursor-pointer '>
                     {
-                        post.likes.includes(userId._id) ? <FcLike/> : <FaRegHeart/>
+                        post.likes.includes(userId._id) ? <FaHandsHelping className='text-amber-500'/> : <FaHandshake />
                     }
-                    <p className='text-sm font-semibold'>{`${post.likes.length} likes`}</p>
+                    <p className='text-sm font-semibold'>{`${post.likes.length} endorsements`}</p>
                 </div>
                 <div
                 onClick={()=>setCommData(post)}
                 className='flex gap-1 items-center cursor-pointer'>
-                    <FaRegComment/><p className='text-sm font-semibold'>{`${post.comments.length} comments`}</p>
+                    <FaRegComment/><p className='text-sm font-semibold'>{`${post.comments.length} notes`}</p>
                 </div>
             </div>
             <div
@@ -121,8 +121,8 @@ const PostCard = ({post, setCommData}) => {
                 <input 
                 onChange={handleChange}
                 name='comment'
-                type="text" id='comment' placeholder='add a comment...' className='w-full px-1 py-1 outline-none' />
-                <input type="submit"  value={"Post"} className='text-blue-600 font-semibold cursor-pointer'/>
+                type="text" id='comment' placeholder='Add a note...' className='w-full px-1 py-1 outline-none' />
+                <input type="submit"  value={"Share"} className='text-slate-900 font-semibold cursor-pointer'/>
             </form>
             <div className='w-full h-[0.5px] mx-1 mt-1 bg-gray-600'></div>
         </div>

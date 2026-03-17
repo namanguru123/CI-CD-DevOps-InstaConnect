@@ -1,17 +1,13 @@
-import React, { useEffect, useState } from 'react'
-import dp from "../assests/addfile.png"
+import React, { useState } from 'react'
 import { followUser } from '../../services/operations/userAPI'
 
-const FollowCard = ({user,choice}) => {
+const FollowCard = ({ user, choice }) => {
   const token = localStorage.getItem("token") ? JSON.parse(localStorage.getItem("token")) : null;
-  const [follow,setFollow]=useState("Follow");
-  const followHandler=async({heroId})=>{
-    //console.log(heroId)
-    if(follow==="Follow")
-      setFollow("Following")
-    else
-      setFollow("Follow")
-    await followUser(heroId,token);
+  const [connectionStatus, setConnectionStatus] = useState("Connect");
+  const followHandler = async ({ heroId }) => {
+    if (connectionStatus === "Connect") setConnectionStatus("Connected");
+    else setConnectionStatus("Connect");
+    await followUser(heroId, token);
   }
 
   return (
@@ -24,11 +20,12 @@ const FollowCard = ({user,choice}) => {
             </div>
         </div>
         
-        <button 
-    onClick={() => followHandler({ heroId: user?._id })}
-    className='text-blue-500 text-sm font-semibold'>
-    {choice === "unfollow" ? "Unfollow" : choice === "follow" ? "Follow" : choice==="follower" ? ""  : follow}
-</button>
+        <button
+          onClick={() => followHandler({ heroId: user?._id })}
+          className='text-slate-900 text-sm font-semibold'
+        >
+          {choice === "unfollow" ? "Disconnect" : choice === "follow" ? "Connect" : choice === "follower" ? "" : connectionStatus}
+        </button>
     </div>
   )
 }

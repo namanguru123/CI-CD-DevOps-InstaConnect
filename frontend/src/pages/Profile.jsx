@@ -19,14 +19,17 @@ const Profile = () => {
     const menuList=[
         {
             name:"posts",
+            label:"Updates",
             element:<IoMdGrid/>
         },
         {
             name:"saved",
+            label:"Bookmarks",
             element:<FaRegBookmark/>
         },
         {
             name:"reels",
+            label:"Briefs",
             element:<FaTag/>
         }
     ];
@@ -115,7 +118,7 @@ const Profile = () => {
                                 className={`${choice===menu.name ? "font-bold" :"" } flex gap-2 items-center hover:font-bold uppercase`}
                             >
                                 {menu.element}
-                                <h1>{menu.name}</h1>
+                                <h1>{menu.label || menu.name}</h1>
                             </button>
                         ))}
                     </div>
@@ -145,7 +148,7 @@ const Profile = () => {
                             ))}
                         </div>
                     ) : (
-                        <div className='text-4xl text-center mt-5'>No Post found</div>
+                        <div className='text-4xl text-center mt-5'>No updates yet</div>
                     )}
                 </div>
                 }

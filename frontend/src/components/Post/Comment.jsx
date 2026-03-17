@@ -19,8 +19,10 @@ const Comment = ({post,setCommData,commData}) => {
       }
     };
 
-    fetchData();
-  }, []);
+    if (postId) {
+      fetchData();
+    }
+  }, [postId]);
 
   useEffect(() => {
     //console.log("Comments data == ", comments);
@@ -36,14 +38,13 @@ const Comment = ({post,setCommData,commData}) => {
           <div className='min-h-[50vh]'>
             <div className='flex justify-between p-2'>
               {/* username */}
-              <h1 className='font-semibold text-xl'>Comments</h1>
+              <h1 className='font-semibold text-xl'>Notes</h1>
               <button
-              className='text-2xl font-bold'
-                onClick={()=>setCommData({})}
+                className='text-2xl font-bold'
+                onClick={() => setCommData({})}
               >
-                <RxCrossCircled/>
+                <RxCrossCircled />
               </button>
-
             </div>
             
             <div className='bg-gray-500 h-[1px] w-full'></div>
@@ -60,7 +61,7 @@ const Comment = ({post,setCommData,commData}) => {
                     </div>
                   </div>
                 )
-              }) : <h1 className='font-semibold text-center mt-4'>No comments found</h1>
+              }) : <h1 className='font-semibold text-center mt-4'>No notes yet</h1>
             }
           </div>
         </div>

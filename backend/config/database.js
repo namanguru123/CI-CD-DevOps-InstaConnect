@@ -2,7 +2,11 @@ const mongoose=require("mongoose");
 require("dotenv").config();
 
 exports.connectDb=()=>{
-    mongoose.connect("mongodb://mongo:27017/instadb")
+    const mongoUri = process.env.MONGODB_URL || process.env.MONGO_URI || "mongodb://localhost:27017/instadb";
+
+    console.log("Connecting to MongoDB:", mongoUri);
+
+    mongoose.connect(mongoUri)
     .then(()=>{
         console.log("DB Connected Successfully");
     })

@@ -1,13 +1,8 @@
 import React, { useState } from 'react'
-import {useNavigate} from 'react-router-dom'
-// logo import removed - using custom branding instead
+import { useNavigate } from 'react-router-dom'
 import { GoHome } from "react-icons/go";
 import { CiSearch } from "react-icons/ci";
-import { MdOutlineExplore } from "react-icons/md";
-import { SiYoutubeshorts } from "react-icons/si";
-import { BsSend } from "react-icons/bs";
-import { GoPlusCircle } from "react-icons/go";
-import { FaRegUserCircle } from "react-icons/fa";
+import { FaBalanceScale, FaRegFileAlt, FaEnvelope, FaPlusCircle, FaUserCircle } from "react-icons/fa";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { logout } from '../../services/operations/authAPI';
 import { useDispatch} from 'react-redux';
@@ -28,27 +23,27 @@ const Sidebar = () => {
             route:"/search",
         },
         {
-            title:"Explore",
-            element:<MdOutlineExplore/>,
+            title:"Cases",
+            element:<FaBalanceScale/>,
             route:"/feed",
         },
         {
-            title:"Reels",
-            element:<SiYoutubeshorts/>,
+            title:"Briefs",
+            element:<FaRegFileAlt/>,
             route:"/reels"
         },
         {
-            title:"Messeges",
-            element:<BsSend />,
+            title:"Messages",
+            element:<FaEnvelope />,
             route:"/message"
         },
         {
-            title:"Create",
-            element:< GoPlusCircle  />
+            title:"Share",
+            element:<FaPlusCircle />
         },
         {
             title:"Profile",
-            element:< FaRegUserCircle  />,
+            element:<FaUserCircle />,
             route:"/user"
         },
     ]
@@ -68,10 +63,13 @@ const Sidebar = () => {
     
   return (
     <>
-        <div className='w-[250px] h-[100vh] border sticky top-0 pl-3 flex flex-col justify-between py-4 font-sans bg-white'>
+        <div className='w-[250px] h-[100vh] border border-slate-200 sticky top-0 pl-3 flex flex-col justify-between py-4 font-sans bg-white'>
             <div className='mt-4 ml-2'>
-                <h1 className='text-3xl font-bold text-purple-700'>InstaConnect</h1>
-                <p className='text-xs text-gray-500 mt-1'>Share Your Story</p>
+                <h1 className='text-3xl font-bold text-slate-900 flex items-center gap-2'>
+                    <FaBalanceScale className='text-amber-500' />
+                    JurisConnect
+                </h1>
+                <p className='text-xs text-slate-500 mt-1'>A professional network for legal teams</p>
             </div>
 
             <div className='flex-1 flex flex-col gap-2 p-1 pr-5 mt-6'>
@@ -80,7 +78,7 @@ const Sidebar = () => {
                         return (
                             <div 
                             onClick={()=>createPostBtnHandle(elem)}
-                            className={`${select===elem.title ? "bg-purple-100 text-purple-700" :"bg-transparent"} text-2xl flex gap-4 items-center hover:bg-purple-50 cursor-pointer p-2 rounded-lg transition-all`}
+                            className={`${select===elem.title ? "bg-slate-100 text-slate-900" : "bg-transparent"} text-2xl flex gap-4 items-center hover:bg-slate-50 cursor-pointer p-2 rounded-lg transition-all`}
                              key={ind} >
                                 {
                                     elem.element
@@ -101,8 +99,8 @@ const Sidebar = () => {
                 <div className='w-full flex justify-center '>
                     <p
                     onClick={()=>logout(navigate)}
-                    className=' bg-red-600 hover:bg-red-500 font-semibold py-2 px-8 cursor-pointer rounded-2xl text-white'>
-                        Logout
+                    className='bg-slate-800 hover:bg-slate-900 font-semibold py-2 px-8 cursor-pointer rounded-2xl text-white'>
+                        Sign out
                     </p>
                     
                 </div>

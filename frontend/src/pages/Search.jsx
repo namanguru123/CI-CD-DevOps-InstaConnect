@@ -39,34 +39,40 @@ const Search = () => {
 
     }
     fetch();
-   },[allUser])
+   },[allUser, token])
   return (
     <div className='flex flex-col justify-start items-start w-full p-8'>
-        <h1 className='my-1 font-semibold text-xl'>Followers</h1>
+        <h1 className='my-1 font-semibold text-xl'>Connections</h1>
         <div className='flex flex-col gap-4 '>
         {
-            followers.length > 0 ?
+            followers.length > 0 ? (
             followers.map((user, ind) => (
                 <div key={ind}>
                     <FollowCard user={user} choice={"follower"}/>
                 </div>
-            )) : <h1 className='text-md font-semibold text-gray-600'>No one has followed you</h1>
+            ))
+            ) : (
+              <h1 className='text-md font-semibold text-slate-600'>No connections yet</h1>
+            )
         }
         </div>
 
-        <h1 className='my-1 font-semibold text-xl mt-4'>Following</h1>
+        <h1 className='my-1 font-semibold text-xl mt-4'>Your Network</h1>
         <div className='flex flex-col gap-4 '>
         {
-            followingUser.length > 0 ?
+            followingUser.length > 0 ? (
             followingUser.map((user, ind) => (
                 <div key={ind}>
                     <FollowCard user={user} choice={"unfollow"}/>
                 </div>
-            )) : <h1 className='text-md font-semibold text-gray-600'>You are not following any one</h1>
+            ))
+            ) : (
+              <h1 className='text-md font-semibold text-slate-600'>You have not connected with any colleagues yet</h1>
+            )
         }
         </div>
 
-        <h1 className='my-1 font-semibold text-xl mt-4'>Follow a new User</h1>
+        <h1 className='my-1 font-semibold text-xl mt-4'>Discover peers</h1>
         <div className='flex flex-col gap-4 '>
         {
             userNotFollow.length > 0 &&
