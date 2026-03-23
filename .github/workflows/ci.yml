@@ -1,4 +1,4 @@
-name: CI - Build & Push Docker Images
+name: CI for JurisConnect
 
 on:
   push:
