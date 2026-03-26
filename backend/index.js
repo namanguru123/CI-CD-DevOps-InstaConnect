@@ -8,10 +8,13 @@ require("dotenv").config();
 const app=express();
 
 app.use(cors({
-    origin: ["http://13.63.157.59:3000/"],
-    methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
-    allowedHeaders: ["Content-Type", "Authorization"],
-    credentials: true,
+  origin: [
+    "http://13.63.157.59:3000",
+    "http://localhost:3000"
+  ],
+  methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+  credentials: true
 }));
 
 app.use(express.json());
