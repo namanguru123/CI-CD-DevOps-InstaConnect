@@ -17,15 +17,19 @@ jobs:
           username: ${{ secrets.EC2_USER }}
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
-            docker pull naman15092005/jurisconnect-frontend:latest
-            docker pull naman15092005/jurisconnect-backend:latest
+           
+                docker pull naman15092005/jurisconnect-frontend:latest
+                docker pull naman15092005/jurisconnect-backend:latest
 
-            docker stop frontend || true
-            docker stop backend || true
+                docker stop $(docker ps -q) || true
+                docker rm $(docker ps -aq) || true
 
+                docker run -d -p 4000:4000 \
+                --name backend \
+                -e MONGODB_URL="${{ secrets.MONGODB_URL }}" \
+                -e JWT_SECRET="mySuperSecretJWTKey123" \
+                naman15092005/jurisconnect-backend:latest
 
-            docker rm -f frontend || true
-            docker rm -f backend || true
-
-            docker run -d -p 3000:80 --name frontend naman15092005/jurisconnect-frontend:latest
-            docker run -d -p 4000:4000 --name backend naman15092005/jurisconnect-backend:latest
+                docker run -d -p 3000:80 \
+                --name frontend \
+                naman15092005/jurisconnect-frontend:latest
