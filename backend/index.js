@@ -41,6 +41,6 @@ const user=require("./routes/user");
 app.use("/api/v1",user);
 
 
-app.listen(PORT,()=>{
-    console.log(`App is running on the port ${PORT}`);
-})
+app.listen(4000, "0.0.0.0", () => {
+  console.log("Server running on 0.0.0.0");
+});
