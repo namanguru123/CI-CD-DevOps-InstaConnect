@@ -5,7 +5,7 @@ const Profile = require("./models/Profile");
 const bcrypt = require("bcryptjs");
 require("dotenv").config();
 
-await Post.deleteMany({});
+
 
 const samplePosts = [
   {
